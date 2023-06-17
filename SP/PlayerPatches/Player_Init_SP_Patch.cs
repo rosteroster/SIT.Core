@@ -43,8 +43,10 @@ namespace SIT.Core.SP.PlayerPatches
                 //Logger.LogInfo($"Skipped on HealthController instance: {__instance.HealthController.GetHashCode()} for profile id: {profile?.Id}");
             }
 
-            DisplayMessageNotifications.DisplayMessageNotification($"{__instance.Profile.Nickname}[{__instance.Side}][{__instance.Profile.Info.Settings.Role}] has spawned");
-
+            if (profile?.Id.StartsWith("pmc") == true)
+            {
+                DisplayMessageNotifications.DisplayMessageNotification($"{__instance.Profile.Nickname}[{__instance.Side}][{__instance.Profile.Info.Settings.Role}] has spawned");
+            }
         }
     }
 }
